@@ -1,0 +1,53 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sparta Łabunie – Skład v16</title>
+<style>
+:root{--navy:#071d3b;--blue:#123a68;--red:#ef2632;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:#04162c;color:#fff;font-family:system-ui,-apple-system,Arial;padding:18px}
+.panel{max-width:760px;margin:auto;background:#0b2b50;padding:18px;border-radius:24px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+select,button{width:100%;padding:14px;border-radius:14px;border:1px solid #54769c;background:#081f3e;color:#fff;font-size:16px;font-weight:700}
+button{background:#ef2632;border:0;margin-top:12px}.hint{color:#bfd0e5}.players{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+label{background:#123a68;padding:10px;border-radius:12px}.pitch{position:relative;aspect-ratio:4/5;margin-top:18px;border:3px solid #fff;border-radius:18px;overflow:hidden;background:linear-gradient(90deg,#176d3a 0 12.5%,#207b43 12.5% 25%,#176d3a 25% 37.5%,#207b43 37.5% 50%,#176d3a 50% 62.5%,#207b43 62.5% 75%,#176d3a 75% 87.5%,#207b43 87.5%);display:none}
+.pitch:before{content:"";position:absolute;left:5%;right:5%;top:50%;border-top:3px solid #ffffffbb}.pitch:after{content:"";position:absolute;width:26%;aspect-ratio:1;border:3px solid #ffffffbb;border-radius:50%;left:37%;top:calc(50% - 13%)}
+.title{position:absolute;top:2%;width:100%;text-align:center;font-size:5.2vw;max-font-size:36px;font-weight:900;text-shadow:0 2px 4px #000}.badge{position:absolute;top:2%;left:3%;width:12%;border-radius:10px}
+.player{position:absolute;transform:translate(-50%,-50%);text-align:center;width:19%}.shirt{margin:auto;width:62px;height:54px;background:#fff;color:#071d3b;clip-path:polygon(20% 0,35% 8%,65% 8%,80% 0,100% 22%,82% 38%,80% 100%,20% 100%,18% 38%,0 22%);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;text-shadow:none}.gk .shirt{background:#ffd84d}.name{font-size:12px;font-weight:900;text-shadow:0 2px 4px #000;margin-top:4px;line-height:1.05}.sponsors{position:absolute;bottom:1.5%;left:3%;right:3%;height:8%;background:#fff;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#071d3b;font-weight:900;font-size:12px}.benchbox{margin-top:16px;padding:14px;border-radius:16px;background:#081f3e}.bench{display:grid;grid-template-columns:1fr 1fr;gap:8px}.benchstrip{position:absolute;bottom:10.5%;left:3%;right:3%;min-height:10%;background:#071d3be8;border-radius:10px;padding:7px;color:white}.benchstrip b{display:block;color:#fff;margin-bottom:4px}.benchnames{display:flex;gap:6px;flex-wrap:wrap;font-size:10px;font-weight:800}.benchnames span{background:#ffffff18;padding:4px 6px;border-radius:7px}
+@media(max-width:520px){.players{grid-template-columns:1fr}.shirt{width:46px;height:42px;font-size:17px}.name{font-size:9px}.title{font-size:21px}}
+</style></head><body><div class="panel">
+<h1>Skład wyjściowy</h1><p class="hint">Wybierz formację i dokładnie 11 zawodników. Pierwszy zaznaczony zawodnik jest bramkarzem.</p>
+<div class="row"><select id="formation"><option>4-4-2</option><option>4-3-3</option><option>4-2-3-1</option><option>3-5-2</option><option>3-4-3</option><option>5-3-2</option></select><button onclick="gen()">GENERUJ SKŁAD</button></div>
+<div id="players" class="players"></div><div class="benchbox"><h2>Rezerwowi</h2><p class="hint">Zaznacz zawodników rezerwowych. Zawodnicy z pierwszej 11 nie mogą być rezerwowymi.</p><label><input id="showBench" type="checkbox" checked> Pokaż rezerwowych na grafice</label><div id="bench" class="bench"></div></div>
+<div id="pitch" class="pitch"><img class="badge" src="herb.jpg"><div class="title">SKŁAD WYJŚCIOWY</div><div id="spots"></div><div id="benchstrip" class="benchstrip"><b>REZERWOWI</b><div id="benchnames" class="benchnames"></div></div><div class="sponsors">GKS SPARTA ŁABUNIE • SPONSORZY KLUBU</div></div>
+<button id="save" style="display:none" onclick="share()">Udostępnij / Zapisz PNG</button>
+<p id="msg" class="hint"></p></div>
+<script>
+const roster=[['Kamil Bosiak',5],['Hubert Buczak',11],['Dawid Dobromilski',6],['Przemysław Dudek',4],['Adam Fedyna',27],['Dawid Goździuk',15],['Tomasz Goździuk',22],['Łukasz Grymuza',8],['Mikołaj Karwina',''],['Alan Kowalski',18],['Bartek Krukowski',''],['Michał Luterek',32],['Alan Marczyk',20],['Łukasz Mikulski',67],['Tomasz Nowak',10],['Filip Ochal',1],['Sebastian Palikot',28],['Damian Pilipczuk',7],['Kamil Salamon',35],['Andrii Sapii',23],['Jakub Skiba',17],['Mateusz Soban',21],['Krystian Sokołowski',19],['Łukasz Stec',77],['Dawid Wilczyński',97],['Jarek Wolski',13],['Adrian Wójcicki',2],['Kacper Zając',14]];
+players.innerHTML=roster.map((p,i)=>`<label><input class="starter" type=checkbox value="${i}"> <b>${p[1]||'—'}</b> ${p[0]}</label>`).join('');
+bench.innerHTML=roster.map((p,i)=>`<label><input class="reserve" type=checkbox value="${i}"> <b>${p[1]||'—'}</b> ${p[0]}</label>`).join('');
+function syncChoices(){
+ const starters=new Set([...document.querySelectorAll('.starter:checked')].map(x=>x.value));
+ document.querySelectorAll('.reserve').forEach(x=>{if(starters.has(x.value))x.checked=false;x.disabled=starters.has(x.value)});
+ const reserves=new Set([...document.querySelectorAll('.reserve:checked')].map(x=>x.value));
+ document.querySelectorAll('.starter').forEach(x=>{if(reserves.has(x.value))x.checked=false;x.disabled=reserves.has(x.value)});
+}
+document.querySelectorAll('.starter,.reserve').forEach(x=>x.addEventListener('change',syncChoices));
+const forms={
+'4-4-2':[[50,88],[18,70],[39,70],[61,70],[82,70],[18,48],[39,48],[61,48],[82,48],[35,25],[65,25]],
+'4-3-3':[[50,88],[18,70],[39,70],[61,70],[82,70],[25,48],[50,52],[75,48],[18,25],[50,20],[82,25]],
+'4-2-3-1':[[50,88],[18,70],[39,70],[61,70],[82,70],[35,54],[65,54],[18,38],[50,36],[82,38],[50,18]],
+'3-5-2':[[50,88],[25,70],[50,72],[75,70],[12,48],[32,48],[50,52],[68,48],[88,48],[35,23],[65,23]],
+'3-4-3':[[50,88],[25,70],[50,72],[75,70],[18,48],[39,48],[61,48],[82,48],[18,23],[50,19],[82,23]],
+'5-3-2':[[50,88],[10,70],[30,70],[50,72],[70,70],[90,70],[25,47],[50,51],[75,47],[35,23],[65,23]]};
+function gen(){
+ let sel=[...document.querySelectorAll('.starter:checked')];
+ if(sel.length!==11){msg.textContent='Zaznacz dokładnie 11 zawodników. Teraz: '+sel.length;return}
+ let ps=forms[formation.value];spots.innerHTML='';
+ sel.forEach((c,n)=>{let p=roster[+c.value],d=document.createElement('div');d.className='player '+(n===0?'gk':'');d.style.left=ps[n][0]+'%';d.style.top=ps[n][1]+'%';let surname=p[0].split(' ').slice(-1)[0];d.innerHTML=`<div class=shirt>${p[1]||'—'}</div><div class=name>${surname}</div>`;spots.appendChild(d)});
+ let res=[...document.querySelectorAll('.reserve:checked')].map(x=>roster[+x.value]);
+ benchstrip.style.display=showBench.checked?'block':'none';
+ benchnames.innerHTML=res.length?res.map(p=>`<span>${p[1]||'—'} ${p[0].split(' ').slice(-1)[0]}</span>`).join(''):'<span>Brak wybranych rezerwowych</span>';
+ pitch.style.display='block';save.style.display='block';msg.textContent='Gotowe: '+formation.value+'. Rezerwowi: '+res.length+'. Bramkarz = pierwszy zaznaczony zawodnik.';
+ pitch.scrollIntoView({behavior:'smooth'});
+}
+async function share(){
+ msg.textContent='Aby zapisać dokładny PNG z tej planszy, wersja v15 powinna zostać scalona z działającym eksporterem PNG z Twojej obecnej aplikacji.';
+}
+</script></body></html>
