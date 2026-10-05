@@ -1,0 +1,450 @@
+<!doctype html><html lang='pl'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>GKS Sparta Łabunie – Kreator</title><link rel='manifest' href='manifest.webmanifest'><meta name='theme-color' content='#061d3b'><meta name='apple-mobile-web-app-capable' content='yes'><meta name='apple-mobile-web-app-status-bar-style' content='black-translucent'><meta name='apple-mobile-web-app-title' content='Sparta Kreator'><meta name='format-detection' content='telephone=no'><link rel='apple-touch-icon' sizes='180x180' href='icon-180.png'><style>
+:root{--navy:#061d3b;--red:#e51f2b;--blue:#174b91;--white:#fff;--gold:#f2c52b}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#04162d;color:#fff}header{display:flex;align-items:center;gap:15px;padding:14px 20px;background:#071b35;border-bottom:3px solid var(--red)}header img{width:64px;height:64px;object-fit:contain;background:white;border-radius:8px}header h1{margin:0;font-size:22px}.wrap{display:grid;grid-template-columns:340px 1fr;gap:18px;padding:18px}.panel,.preview{background:#0b2545;border-radius:14px;padding:18px;box-shadow:0 10px 30px #0005}h2{margin-top:0}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.tabs button,.primary{border:0;border-radius:8px;padding:11px 13px;color:white;background:#15375e;font-weight:700;cursor:pointer}.tabs button.active,.primary{background:var(--red)}label{font-size:13px;color:#cbd6e6;display:block;margin:10px 0 4px}input,select{width:100%;padding:10px;border:1px solid #31506f;background:#071b35;color:#fff;border-radius:7px}.row{display:flex;gap:8px}.row>*{flex:1}.secondary{border:1px solid #42658b;border-radius:8px;padding:10px;color:#fff;background:#102f52;font-weight:700;cursor:pointer}.clubdb{margin-top:12px;padding:12px;background:#071b35;border-radius:10px}.clubrow{display:grid;grid-template-columns:42px 1fr auto;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid #284461}.clubrow img{width:38px;height:38px;object-fit:contain;background:white;border-radius:6px}.clubrow button{padding:6px 8px}.oppcrest{width:140px;height:140px;object-fit:contain;background:#fff;border-radius:12px;padding:6px}.placeholder{width:140px;height:140px;border-radius:12px;background:#174b91;border:4px solid #fff;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:900;color:#fff}.players{max-height:250px;overflow:auto;margin-top:10px}.player{display:flex;align-items:center;gap:8px;padding:6px;border-bottom:1px solid #284461}.player input{width:auto}.card{aspect-ratio:1/1;background:linear-gradient(145deg,#092d5a,#07162d 60%,#b91322);position:relative;overflow:hidden;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px}.card:before{content:'';position:absolute;inset:-30%;background:linear-gradient(25deg,transparent 42%,#fff1 43% 46%,transparent 47%);transform:rotate(-8deg)}.league{font-weight:700;letter-spacing:1px;z-index:1}.title{font-size:58px;font-weight:900;font-style:italic;margin:20px 0;color:#fff;z-index:1}.title span{color:var(--red)}.teams{display:flex;align-items:center;justify-content:center;gap:35px;z-index:1}.teams img{width:140px;height:140px;object-fit:contain;background:#fff;border-radius:12px;padding:6px}.vs{font-size:38px;font-weight:900}.meta{margin-top:25px;font-size:20px;font-weight:700;z-index:1}.lineup{width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;z-index:1}.chip{background:#ffffffea;color:#071b35;padding:8px;border-radius:7px;font-weight:800}.actions{display:flex;gap:10px;margin-top:12px}.note{font-size:12px;color:#aebdd0;margin-top:8px}.sponsors{margin-top:14px;padding:12px;background:#071b35;border-radius:10px}.sponsorimg{width:100%;max-height:180px;object-fit:contain;background:#fff;border-radius:8px;padding:6px}.sponsorbar{position:absolute;left:18px;right:18px;bottom:14px;background:#fff;border-radius:8px;padding:7px;z-index:2}.sponsorbar img{width:100%;height:65px;object-fit:contain}.sponsorgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;max-height:310px;overflow:auto;margin-top:8px}.sponsoritem{background:#fff;color:#071b35;border-radius:8px;padding:5px;text-align:center;font-size:10px;font-weight:700}.sponsoritem img{width:100%;height:54px;object-fit:contain}.sponsoritem input{width:auto}.sponsorlogos{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}.sponsorlogos img{width:auto;height:48px;max-width:110px;object-fit:contain}.card{padding-bottom:100px}@media(max-width:850px){.wrap{grid-template-columns:1fr}.title{font-size:38px}.teams img{width:95px;height:95px}}
+
+.nav2{display:flex;gap:8px;flex-wrap:wrap;padding:12px 18px;background:#05182f;border-bottom:1px solid #244563}.nav2 button{border:0;border-radius:8px;padding:10px 12px;background:#15375e;color:#fff;font-weight:800;cursor:pointer}.nav2 button.active{background:var(--red)}.view{display:none}.view.active{display:block}.box{background:#0b2545;border-radius:14px;padding:16px;margin:18px;box-shadow:0 10px 30px #0005}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.matchitem,.eventitem{background:#071b35;border:1px solid #294866;border-radius:10px;padding:12px;margin:8px 0}.badge{display:inline-block;padding:4px 8px;border-radius:999px;background:#15375e;font-size:12px;font-weight:800}.livebuttons{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.livebuttons button{padding:13px;border:0;border-radius:9px;font-weight:900;cursor:pointer}.goal{background:#f2c52b}.yellow{background:#ffe34d}.redcard{background:#e51f2b;color:#fff}.change{background:#fff}.formatBtns{display:flex;gap:7px;flex-wrap:wrap}.formatBtns button{padding:8px}.rosterManager{max-height:380px;overflow:auto}.squadrow{display:grid;grid-template-columns:32px 1fr 90px 45px;gap:7px;align-items:center;padding:6px;border-bottom:1px solid #284461}.squadrow input[type=checkbox]{width:auto}.social{font-size:14px;opacity:.9}.templatepick{display:flex;gap:7px;flex-wrap:wrap}.templatepick button{padding:8px 10px}@media(max-width:850px){.grid2,.grid3{grid-template-columns:1fr}.squadrow{grid-template-columns:28px 1fr 80px 40px}}
+.xigkbar{display:flex;gap:8px;margin:10px 0 4px}.xigkbtn{flex:1;padding:11px 6px;border:2px solid #31577d;border-radius:12px;font-weight:900}.xigkbtn.yellow{background:#ffd84a;color:#071b33}.xigkbtn.orange{background:#f28c18;color:#071b33}.xigkbtn.black{background:#111;color:#fff}.xigkbtn.active{outline:3px solid #fff;outline-offset:2px}.xishirt.gk-yellow{background:#ffd84a!important;color:#071b33!important}.xishirt.gk-orange{background:#f28c18!important;color:#071b33!important}.xishirt.gk-black{background:#111!important;color:#fff!important;border:1px solid #8ba2ba!important}.ximodalcurrent{background:#174b91;border-radius:12px;padding:12px;margin-top:12px;font-weight:800}.ximodalavail{font-size:13px;color:#bfd0e5;margin:14px 2px 6px;font-weight:800}
+.xibenchstrip{padding:12px!important}
+.xibenchstrip h3{margin:0 0 10px!important}
+.xibenchlist{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 6px!important}
+.xibenchmini{min-width:0;text-align:center;color:#fff;font-weight:800;font-size:15px;line-height:1.05}
+.xibenchshirt{width:62px;height:58px;margin:0 auto 6px;clip-path:polygon(22% 0,38% 9%,62% 9%,78% 0,100% 22%,82% 38%,79% 100%,21% 100%,18% 38%,0 22%);display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:900;color:#fff}
+.xibenchshirt.red{background:#ed1c2b}.xibenchshirt.navy{background:#071b33;filter:drop-shadow(0 0 2px #fff)}
+.xibenchname{overflow-wrap:anywhere}
+@media(max-width:390px){.xibenchlist{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.xibenchgkcheck{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:6px;font-size:10px;font-weight:900;color:#fff}
+.xibenchgkcheck input{width:16px;height:16px}
+.xibenchshirt.gk-yellow{background:#ffd84a!important;color:#071b33!important}
+.xibenchshirt.gk-orange{background:#f28c18!important;color:#071b33!important}
+.xibenchshirt.gk-black{background:#111!important;color:#fff!important;border:1px solid #8fb0cf}
+</style></head><body><div style="padding:10px 34px"><button class="primary" onclick="openXI()">⚽ Skład na boisku</button></div><header><img src='herb.jpg'><div><h1>GKS SPARTA ŁABUNIE</h1><div>Kreator grafik klubowych</div></div></header><div class='nav2'><button class='active' data-view='creator'>Kreator</button><button data-view='schedule'>Terminarz</button><button data-view='center'>Centrum meczu</button><button data-view='history'>Historia</button><button data-view='season'>Sezon</button><button data-view='library'>Biblioteka</button><button data-view='admin'>Administracja</button><button data-view='settings'>Wygląd</button></div><div id='creator' class='view active'><div class='wrap'><section class='panel'><div class='tabs'><button class='active' data-type='match'>Zapowiedź</button><button data-type='lineup'>Skład</button><button data-type='result'>Wynik</button></div><h2>Dane grafiki</h2><label>Przeciwnik</label><div class='row'><select id='opp'></select><button class='secondary' onclick='toggleClubDB()'>Baza klubów</button></div><div id='clubdb' class='clubdb' style='display:none'><b>Kluby / przeciwnicy</b><div id='clubList'></div><label>Dodaj nowy klub</label><input id='newClub' placeholder='Nazwa klubu'><label>Herb (opcjonalnie)</label><input id='newCrest' type='file' accept='image/*'><button class='secondary' style='width:100%;margin-top:8px' onclick='addClub()'>+ Dodaj klub</button></div><label>Miejsce meczu</label><select id='matchVenue'><option value='home'>Mecz u siebie</option><option value='away'>Mecz wyjazdowy</option><option value='neutral'>Neutralny teren</option></select><label>Stadion / miejsce</label><input id='stadium' value='Stadion w Łabuniach, ul. Parkowa 9'><div class='note'>Przy meczu u siebie stadion Sparty ustawia się automatycznie.</div><label>Data</label><input id='date' type='date'><label>Godzina</label><input id='time' type='time' value='15:00'><label>Rozgrywki</label><select id='league'><option value='Zamojska Klasa Okręgowa MACRON'>Zamojska Klasa Okręgowa MACRON</option><option value='Puchar Polski'>Puchar Polski</option><option value='Sparing'>Sparing</option></select><label id='stageLabel'>Kolejka</label><input id='stage' placeholder='np. 5'><div class='note'>Trener: Tomasz Goździuk</div><label>Wynik</label><input id='score' value='3:1'><h3>Kadra</h3><div class='players' id='players'></div><button class='primary' style='width:100%;margin-top:14px' onclick='render()'>GENERUJ GRAFIKĘ</button><div class='note'>Zaznacz maks. 11 zawodników dla grafiki składu.</div><div class='sponsors'><h3>Sponsorzy</h3><label><input id='showSponsors' type='checkbox' checked style='width:auto'> Pokaż sponsorów na grafice</label><label>Tryb wyświetlania</label><select id='sponsorMode'><option value='logos'>Wybrane pojedyncze loga</option><option value='sheet'>Cały arkusz sponsorów</option></select><div id='sponsorGrid' class='sponsorgrid'></div><button class='secondary' style='width:100%;margin-top:8px' onclick='selectAllSponsors(true)'>Zaznacz wszystkie</button><button class='secondary' style='width:100%;margin-top:6px' onclick='selectAllSponsors(false)'>Odznacz wszystkie</button><label style='margin-top:12px'>Pełny arkusz</label><img id='sponsorPreview' class='sponsorimg' src='sponsorzy/00_arkusz_wszystkich_sponsorow.jpg' alt='Sponsorzy GKS Sparta Łabunie'><div class='note'>Możesz użyć całego arkusza albo wybrać pojedyncze loga do konkretnej grafiki.</div></div></section><section class='preview'><div id='card' class='card'></div><div class='actions'><button class='primary' onclick='downloadCard()'>Udostępnij / Zapisz PNG</button><button onclick='saveData()'>Zapisz dane</button></div></section></div></div>
+<div id='schedule' class='view'><div class='box'><h2>Terminarz</h2><div class='grid2'><div><h3>Dodaj mecz</h3><label>Przeciwnik</label><select id='schedOpp'></select><label>Data</label><input id='schedDate' type='date'><label>Godzina</label><input id='schedTime' type='time' value='15:00'><label>Miejsce</label><select id='schedVenue'><option value='home'>U siebie</option><option value='away'>Wyjazd</option><option value='neutral'>Neutralny</option></select><label>Stadion</label><input id='schedStadium' value='Stadion w Łabuniach, ul. Parkowa 9'><label>Rozgrywki</label><select id='schedLeague'><option>Zamojska Klasa Okręgowa MACRON</option><option>Puchar Polski</option><option>Sparing</option></select><label>Kolejka / runda / opis</label><input id='schedStage'><button class='primary' style='width:100%;margin-top:12px' onclick='addMatch()'>+ DODAJ DO TERMINARZA</button></div><div><h3>Zaplanowane mecze</h3><div id='scheduleList'></div></div></div></div></div>
+<div id='center' class='view'><div class='box'><h2>Centrum meczu</h2><label>Wybierz mecz z terminarza</label><select id='liveMatch'></select><div class='grid2'><div><h3>Kadra meczowa</h3><div class='note'>Status: Podstawowy / Rezerwowy / Poza kadrą. Zaznacz kapitana.</div><div id='matchSquad' class='rosterManager'></div></div><div><h3>Relacja LIVE</h3><div class='grid2'><div><label>Minuta</label><input id='eventMinute' type='number' min='1' max='130' value='1'></div><div><label>Zawodnik</label><select id='eventPlayer'></select></div></div><div class='livebuttons'><button class='goal' onclick="addEvent('goal')">⚽ GOL</button><button class='yellow' onclick="addEvent('yellow')">🟨 Żółta kartka</button><button class='redcard' onclick="addEvent('red')">🟥 Czerwona kartka</button><button class='change' onclick="addEvent('change')">🔄 Zmiana</button></div><label>Aktualny wynik Sparty</label><input id='liveScore' value='0:0'><div class='templatepick' style='margin-top:10px'><button class='secondary' onclick="liveGraphic('goal')">Grafika GOOOL</button><button class='secondary' onclick="liveGraphic('ht')">Grafika PRZERWA</button><button class='secondary' onclick="liveGraphic('ft')">Grafika KONIEC</button><button class='secondary' onclick="liveGraphic('mvp')">Grafika MVP</button></div><h3>Wydarzenia</h3><div id='eventList'></div><button class='primary' style='width:100%' onclick='finishMatch()'>ZAKOŃCZ I ZAPISZ W HISTORII</button></div></div></div></div>
+<div id='history' class='view'><div class='box'><h2>Historia spotkań i statystyki</h2><div id='stats'></div><div id='historyList'></div></div></div>
+
+<div id='season' class='view'><div class='box'><h2>Sezon 2026/27</h2><div id='seasonSummary'></div><h3>Statystyki zawodników</h3><div id='playerStats'></div><h3>Tabela MACRON — ręczna</h3><div class='grid2'><div><label>Drużyna</label><input id='tableTeam' placeholder='np. GKS Sparta Łabunie'><label>Mecze</label><input id='tableM' type='number' value='0'><label>Punkty</label><input id='tablePts' type='number' value='0'></div><div><label>Bramki zdobyte</label><input id='tableGF' type='number' value='0'><label>Bramki stracone</label><input id='tableGA' type='number' value='0'><button class='primary' style='width:100%;margin-top:14px' onclick='addTableRow()'>Dodaj / aktualizuj</button></div></div><div id='leagueTable'></div></div></div>
+<div id='library' class='view'><div class='box'><h2>Biblioteka grafik</h2><p class='note'>Każdy eksport PNG może zostać zapisany w bibliotece urządzenia. Miniatury są przechowywane lokalnie.</p><div id='libraryList' class='grid3'></div><button class='secondary' onclick='clearLibrary()'>Wyczyść bibliotekę</button></div></div>
+<div id='admin' class='view'><div class='box'><h2>Administracja i kopie zapasowe</h2><div class='grid2'><div><h3>Dane klubu</h3><label>Trener</label><input id='adminCoach' value='Tomasz Goździuk'><label>Stadion domowy</label><input id='adminStadium' value='Stadion w Łabuniach, ul. Parkowa 9'><label>Social media</label><input id='adminSocial' placeholder='np. @spartalabunie'><button class='primary' style='width:100%;margin-top:12px' onclick='saveAdmin()'>Zapisz dane klubu</button><h3>Własne tło</h3><input id='bgUpload' type='file' accept='image/*'><button class='secondary' style='width:100%;margin-top:8px' onclick='saveBackground()'>Wgraj tło</button></div><div><h3>Kopia zapasowa</h3><button class='primary' style='width:100%' onclick='exportBackup()'>Eksportuj kopię JSON</button><label>Import kopii</label><input id='backupFile' type='file' accept='.json,application/json'><button class='secondary' style='width:100%;margin-top:8px' onclick='importBackup()'>Importuj kopię</button><h3>Instalacja</h3><button id='installBtn' class='secondary' style='width:100%' onclick='installApp()'>Zainstaluj aplikację</button><p class='note'>Po uruchomieniu przez HTTPS aplikacja może działać jako PWA i offline. Przy otwieraniu bezpośrednio z pliku HTML instalacja zależy od przeglądarki.</p></div></div></div></div>
+<div id='settings' class='view'><div class='box'><h2>Wygląd i format eksportu</h2><div class='grid2'><div><label>Format grafiki</label><select id='exportFormat'><option value='square'>1080×1080 — post</option><option value='portrait'>1080×1350 — post pionowy</option><option value='story'>1080×1920 — Stories</option></select><label>Szablon</label><select id='theme'><option value='classic'>Klasyczny Sparta</option><option value='clean'>Czysty granat</option><option value='red'>Czerwony meczowy</option><option value='stadium'>Stadion</option><option value='cup'>Pucharowy</option></select><label>Rozmiar herbu</label><select id='crestSize'><option value='normal'>Normalny</option><option value='large'>Duży</option></select></div><div><label><input id='showClubName' type='checkbox' checked style='width:auto'> Pokaż napis GKS SPARTA ŁABUNIE</label><label><input id='showSocial' type='checkbox' style='width:auto'> Pokaż social media</label><label>Nazwa profilu / social media</label><input id='socialText' placeholder='np. @spartalabunie'><label>Tło</label><select id='backgroundType'><option value='graphic'>Klubowe / graficzne</option><option value='dark'>Ciemne</option><option value='custom'>Własne zdjęcie</option></select><button class='primary' style='width:100%;margin-top:14px' onclick='saveSettings()'>ZAPISZ USTAWIENIA</button></div></div></div></div>
+<script>
+const roster=[['Kamil Bosiak',5],['Hubert Buczak',11],['Dawid Dobromilski',6],['Przemysław Dudek',4],['Adam Fedyna',27],['Dawid Goździuk',15],['Tomasz Goździuk',22],['Łukasz Grymuza',8],['Mikołaj Karwina','—'],['Alan Kowalski',18],['Bartek Krukowski','—'],['Michał Luterek',32],['Alan Marczyk',20],['Łukasz Mikulski',67],['Tomasz Nowak',10],['Filip Ochal',1],['Sebastian Palikot',28],['Damian Pilipczuk',7],['Kamil Salamon',35],['Andrii Sapii',23],['Jakub Skiba',17],['Mateusz Soban',21],['Krystian Sokołowski',19],['Łukasz Stec',77],['Dawid Wilczyński',97],['Jarek Wolski',13],['Adrian Wójcicki',2],['Kacper Zając',14]];
+const defaultClubs=[
+{name:'Błękitni Obsza',crest:'kluby/blekitni_obsza.jpg'},
+{name:'Omega Stary Zamość',crest:'kluby/omega_stary_zamosc.jpg'},
+{name:'Korona Łaszczów',crest:'kluby/korona_laszczow.jpg'},
+{name:'Olimpiakos Tarnogród',crest:'kluby/olimpiakos_tarnogrod.jpg'},
+{name:'BKS Bodaczów',crest:'kluby/bks_bodaczow.jpg'},
+{name:'Pogoń 96 Łaszczówka',crest:'kluby/pogon_96_laszczowka.jpg'},
+{name:'KS Sokół Zwierzyniec',crest:'kluby/sokol_zwierzyniec.jpg'},
+{name:'Igros Krasnobród',crest:'kluby/igros_krasnobrod.jpg'},
+{name:'MLKS Kryształ Werbkowice',crest:'kluby/krysztal_werbkowice.jpg'},
+{name:'Andoria Mircze',crest:'kluby/andoria_mircze.jpg'},
+{name:'Graf Chodywańce',crest:'kluby/graf_chodywance.png'},
+{name:'LZS Tanew Majdan Stary',crest:'kluby/tanew_majdan_stary.jpg'},
+{name:'Huczwa Tyszowce',crest:'kluby/huczwa_tyszowce.jpg'},
+{name:'GKS Huragan Hrubieszów',crest:'kluby/huragan_hrubieszow.jpg'},
+{name:'Gryf Gmina Zamość',crest:'kluby/gryf_gmina_zamosc.jpg'},
+{name:'Łada 1945 Biłgoraj',crest:'kluby/lada_1945_bilgoraj.jpg'}];
+// v5: wbudowane, zatwierdzone herby. Migracja wcześniejszej lokalnej bazy zachowuje własne kluby,
+// ale uzupełnia herby klubów domyślnych i dodaje brakujące pozycje.
+let storedClubs=JSON.parse(localStorage.getItem('sparta_clubs')||'null');
+let clubs=storedClubs||defaultClubs.map(c=>({...c}));
+if(storedClubs){
+  const aliases={'MGKS Igros Krasnobród':'Igros Krasnobród','Sokół Zwierzyniec':'KS Sokół Zwierzyniec','Kryształ Werbkowice':'MLKS Kryształ Werbkowice','Tanew Majdan Stary':'LZS Tanew Majdan Stary'};
+  clubs=clubs.map(c=>{let target=aliases[c.name]||c.name;let d=defaultClubs.find(x=>x.name===target);return d?{...c,name:d.name,crest:d.crest}:c});
+  defaultClubs.forEach(d=>{if(!clubs.some(c=>c.name===d.name))clubs.push({...d})});
+  localStorage.setItem('sparta_clubs',JSON.stringify(clubs));
+}
+let type='match'; const p=document.getElementById('players'); roster.forEach((x,i)=>p.innerHTML+=`<label class='player'><input type='checkbox' value='${i}'> <b>${x[1]}</b> ${x[0]}</label>`);
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');type=b.dataset.type;render()}); document.getElementById('date').value=new Date().toISOString().slice(0,10);
+function persistClubs(){localStorage.setItem('sparta_clubs',JSON.stringify(clubs))}
+function refreshClubs(keep){const sel=document.getElementById('opp'),old=keep||sel.value;sel.innerHTML=clubs.map((c,i)=>`<option value='${i}'>${c.name}</option>`).join('');let ix=clubs.findIndex(c=>c.name===old);sel.value=ix>=0?ix:0;sel.onchange=render;renderClubList()}
+function renderClubList(){document.getElementById('clubList').innerHTML=clubs.map((c,i)=>`<div class='clubrow'>${c.crest?`<img src='${c.crest}'>`:`<div style='width:38px;height:38px;border-radius:6px;background:#174b91;display:flex;align-items:center;justify-content:center;font-weight:900'>${initials(c.name)}</div>`}<span>${c.name}</span><span><button class='secondary' onclick='uploadCrest(${i})'>Herb</button> <button class='secondary' onclick='deleteClub(${i})'>×</button></span></div>`).join('')}
+function toggleClubDB(){let e=document.getElementById('clubdb');e.style.display=e.style.display==='none'?'block':'none'}
+function addClub(){let name=document.getElementById('newClub').value.trim(),f=document.getElementById('newCrest').files[0];if(!name)return alert('Wpisz nazwę klubu.');let finish=crest=>{clubs.push({name,crest:crest||''});persistClubs();refreshClubs(name);document.getElementById('newClub').value='';document.getElementById('newCrest').value='';render()};if(f){let r=new FileReader();r.onload=()=>finish(r.result);r.readAsDataURL(f)}else finish('')}
+function uploadCrest(i){let inp=document.createElement('input');inp.type='file';inp.accept='image/*';inp.onchange=()=>{let f=inp.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{clubs[i].crest=r.result;persistClubs();renderClubList();render()};r.readAsDataURL(f)};inp.click()}
+function deleteClub(i){if(!confirm('Usunąć '+clubs[i].name+' z bazy?'))return;clubs.splice(i,1);persistClubs();refreshClubs();render()}
+function initials(n){return n.split(/\s+/).filter(x=>!['GKS','MGKS','BKS','LKS','KS'].includes(x)).slice(0,2).map(x=>x[0]).join('').toUpperCase()||'KL'}
+function oppClub(){return clubs[+document.getElementById('opp').value]||{name:'Przeciwnik',crest:''}}
+function oppVisual(c){return c.crest?`<img class='oppcrest' src='${c.crest}'>`:`<div class='placeholder'>${initials(c.name)}</div>`}
+const sponsors=[
+['Gmina Łabunie','01_herb_gminy_labunie.jpg'],['Entra','02_entra.jpg'],['RE-MAT','03_re_mat.jpg'],['KlimaŚwiat','04_klimaswiat.jpg'],['BOR-DIP','05_bor_dip.jpg'],['Złota Setka Spartan','06_zlota_setka_spartan.jpg'],['Salon Fryzjerski Silmo','07_salon_fryzjerski_silmo.jpg'],['Petra Kominki','08_petra_kominki.jpg'],['Glass-Zam','09_glass_zam.jpg'],['M3 Sport','10_m3_sport.jpg'],['DPF Serwis','11_dpf_serwis.jpg'],['MDD Maszyny do Drewna','12_mdd_maszyny_do_drewna.jpg'],['MDD Domy z Drewna','13_mdd_domy_z_drewna.jpg'],['Stalovy','14_stalovy.jpg'],['Szef Bud','15_szef_bud.jpg'],['Delikatesy Sezam','16_delikatesy_sezam.jpg'],['CymiPro','17_cymipro.jpg'],['Auto-Hobby','18_auto_hobby.jpg'],['Mateusz Lal','19_mateusz_lal.jpg'],['Strefa Juniora','20_strefa_juniora.jpg'],['Sok Tłoczony Jabłkowy Łabunie','21_sok_tloczony_jablkowy_labunie.jpg'],['Miejsce na Twoją reklamę','22_miejsce_na_twoja_reklame.jpg'],['Bar Kuźnia','23_bar_kuznia.jpg'],['Dietum','24_dietum.jpg'],['Eco Fresh','25_eco_fresh.jpg'],['GTnet','26_gtnet.jpg'],['Greinplast','27_greinplast.jpg']];
+let sponsorSelection=JSON.parse(localStorage.getItem('sparta_sponsor_selection')||'null')||sponsors.map((_,i)=>i);
+function renderSponsorGrid(){document.getElementById('sponsorGrid').innerHTML=sponsors.map((s,i)=>`<label class='sponsoritem'><img src='sponsorzy/${s[1]}'><br><input type='checkbox' data-si='${i}' ${sponsorSelection.includes(i)?'checked':''}> ${s[0]}</label>`).join('');document.querySelectorAll('[data-si]').forEach(x=>x.onchange=()=>{sponsorSelection=[...document.querySelectorAll('[data-si]:checked')].map(y=>+y.dataset.si);localStorage.setItem('sparta_sponsor_selection',JSON.stringify(sponsorSelection));render()})}
+function selectAllSponsors(v){sponsorSelection=v?sponsors.map((_,i)=>i):[];localStorage.setItem('sparta_sponsor_selection',JSON.stringify(sponsorSelection));renderSponsorGrid();render()}
+function sponsorBar(){if(!document.getElementById('showSponsors')?.checked)return '';if(document.getElementById('sponsorMode').value==='sheet')return `<div class='sponsorbar'><img src='sponsorzy/00_arkusz_wszystkich_sponsorow.jpg'></div>`;let logos=sponsorSelection.slice(0,8).map(i=>`<img src='sponsorzy/${sponsors[i][1]}' title='${sponsors[i][0]}'>`).join('');return `<div class='sponsorbar sponsorlogos'>${logos||'<span style="color:#071b35;font-weight:700">Wybierz sponsorów</span>'}</div>`}
+function selected(){return [...document.querySelectorAll('.player input:checked')].slice(0,11).map(x=>roster[x.value])} function fmtDate(v){if(!v)return '';let d=new Date(v+'T12:00:00');return d.toLocaleDateString('pl-PL',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase()}
+const HOME_STADIUM='Stadion w Łabuniach, ul. Parkowa 9';
+function venueMode(){return document.getElementById('matchVenue').value}
+function stadiumText(){return document.getElementById('stadium').value.trim()||'Miejsce do ustalenia'}
+function applyVenue(){let m=venueMode(),st=document.getElementById('stadium');if(m==='home'){st.value=HOME_STADIUM;st.readOnly=true}else{st.readOnly=false;if(st.value===HOME_STADIUM)st.value=''}render()}
+function teamOrder(oc){let sp={name:'GKS SPARTA ŁABUNIE',crest:'herb.jpg',sparta:true},op={name:oc.name,crest:oc.crest,sparta:false};return venueMode()==='away'?[op,sp]:[sp,op]}
+function teamVisual(t){return t.sparta?`<img src='herb.jpg'>`:(t.crest?`<img class='oppcrest' src='${t.crest}'>`:`<div class='placeholder'>${initials(t.name)}</div>`)}
+function render(){let oc=oppClub(),opp=oc.name,date=fmtDate(document.getElementById('date').value),time=document.getElementById('time').value,league=document.getElementById('league').value,stage=document.getElementById('stage').value,score=document.getElementById('score').value,c=document.getElementById('card'),stad=stadiumText(),ord=teamOrder(oc);if(type==='lineup'){let s=selected();c.innerHTML=`<div class='league'>${league}${stage?' • '+(league==='Puchar Polski'?'RUNDA ':league==='Sparing'?'':'KOLEJKA ')+stage:''}</div><div class='title'>SKŁAD <span>MECZOWY</span></div><img src='herb.jpg' style='width:90px;z-index:1'><div class='lineup'>${s.map(x=>`<div class='chip'>${x[1]} ${x[0]}</div>`).join('')}</div><div class='meta'>${ord[0].name} • ${ord[1].name}<br><span style='font-size:16px'>📍 ${stad}</span></div>${sponsorBar()}`}else if(type==='result'){c.innerHTML=`<div class='league'>${league}${stage?' • '+(league==='Puchar Polski'?'RUNDA ':league==='Sparing'?'':'KOLEJKA ')+stage:''}</div><div class='title'>KONIEC <span>MECZU</span></div><div class='teams'><div>${teamVisual(ord[0])}<div style='font-size:18px;font-weight:900;margin-top:7px'>${ord[0].name}</div></div><div class='vs'>${score}</div><div>${teamVisual(ord[1])}<div style='font-size:18px;font-weight:900;margin-top:7px'>${ord[1].name}</div></div></div><div class='meta'>📍 ${stad}</div>${sponsorBar()}`}else{c.innerHTML=`<div class='league'>${league}${stage?' • '+(league==='Puchar Polski'?'RUNDA ':league==='Sparing'?'':'KOLEJKA ')+stage:''}</div><div class='title'>MECZOWY <span>DZIEŃ</span></div><div class='teams'><div>${teamVisual(ord[0])}<div><b>${ord[0].name}</b></div></div><div class='vs'>VS</div><div>${teamVisual(ord[1])}<div style='font-size:18px;font-weight:900;margin-top:7px'>${ord[1].name}</div></div></div><div class='meta'>📅 ${date} &nbsp; ⏰ ${time}<br>📍 ${stad}</div>${sponsorBar()}`}}
+function saveData(){let oc=oppClub();localStorage.setItem('sparta',JSON.stringify({oppName:oc.name,date:date.value,time:time.value,league:league.value,stage:stage.value,score:score.value,matchVenue:matchVenue.value,stadium:stadium.value}));alert('Dane zapisane na tym urządzeniu.')}
+async function loadImage(src){return new Promise((resolve,reject)=>{let im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=src})}
+function fitText(ctx,text,maxWidth,start,min=18){let size=start;while(size>min){ctx.font=`900 ${size}px Arial`;if(ctx.measureText(text).width<=maxWidth)break;size-=2}return size}
+function drawContain(ctx,img,x,y,w,h,pad=0){let aw=w-pad*2,ah=h-pad*2,r=Math.min(aw/img.width,ah/img.height),dw=img.width*r,dh=img.height*r;ctx.fillStyle='#fff';ctx.fillRect(x,y,w,h);ctx.drawImage(img,x+(w-dw)/2,y+(h-dh)/2,dw,dh)}
+function wrapText(ctx,text,x,y,maxWidth,lineHeight,maxLines=2){let words=text.split(/\s+/),line='',lines=[];for(let w of words){let test=line?line+' '+w:w;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=w}else line=test}if(line)lines.push(line);lines=lines.slice(0,maxLines);lines.forEach((l,i)=>ctx.fillText(l,x,y+i*lineHeight))}
+async function downloadCard(){
+ const btn=document.querySelector('.actions .primary'),old=btn.textContent;btn.disabled=true;btn.textContent='Tworzę PNG…';
+ try{
+  const fmt=(document.getElementById('exportFormat')?.value||'square');const W=1080,H=fmt==='story'?1920:fmt==='portrait'?1350:1080,cv=document.createElement('canvas');cv.width=W;cv.height=H;const ctx=cv.getContext('2d');
+  let g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,'#092d5a');g.addColorStop(.62,'#07162d');g.addColorStop(1,'#b91322');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  ctx.save();ctx.globalAlpha=.08;ctx.strokeStyle='#fff';ctx.lineWidth=26;for(let i=-500;i<1600;i+=180){ctx.beginPath();ctx.moveTo(i,0);ctx.lineTo(i+520,H);ctx.stroke()}ctx.restore();
+  const oc=oppClub(),opp=oc.name,ord=teamOrder(oc),stad=stadiumText(),date=fmtDate(document.getElementById('date').value),tm=document.getElementById('time').value,lg=document.getElementById('league').value,stg=document.getElementById('stage').value,sc=document.getElementById('score').value;
+  ctx.textAlign='center';ctx.fillStyle='#fff';ctx.font='700 30px Arial';ctx.fillText(lg.toUpperCase(),W/2,62);
+  let title=type==='lineup'?'SKŁAD MECZOWY':type==='result'?'KONIEC MECZU':'MECZOWY DZIEŃ';ctx.font='italic 900 76px Arial';ctx.fillText(title,W/2,165);
+  let home=await loadImage('herb.jpg');
+  if(type==='lineup'){
+    drawContain(ctx,home,450,205,180,180,10);let s=selected(),cols=3,cw=300,ch=68,startX=70,startY=420;ctx.textAlign='left';ctx.font='800 25px Arial';
+    s.forEach((pl,i)=>{let col=i%cols,row=Math.floor(i/cols),x=startX+col*(cw+20),y=startY+row*(ch+14);ctx.fillStyle='rgba(255,255,255,.94)';ctx.fillRect(x,y,cw,ch);ctx.fillStyle='#071b35';ctx.fillText(`${pl[1]}  ${pl[0]}`,x+14,y+43)});ctx.textAlign='center';ctx.fillStyle='#fff';ctx.font='700 26px Arial';ctx.fillText(`${ord[0].name} • ${ord[1].name}`,W/2,750);ctx.font='700 22px Arial';ctx.fillText(stad,W/2,790);
+  }else{
+    let leftImg=null,rightImg=null;try{leftImg=await loadImage(ord[0].sparta?'herb.jpg':ord[0].crest)}catch(e){};try{rightImg=await loadImage(ord[1].sparta?'herb.jpg':ord[1].crest)}catch(e){};if(leftImg)drawContain(ctx,leftImg,155,270,250,250,12);else{ctx.fillStyle='#174b91';ctx.fillRect(155,270,250,250)}if(rightImg)drawContain(ctx,rightImg,675,270,250,250,12);else{ctx.fillStyle='#174b91';ctx.fillRect(675,270,250,250)}
+    ctx.fillStyle='#fff';ctx.font='900 52px Arial';ctx.fillText(type==='result'?sc:'VS',W/2,420);let fs1=fitText(ctx,ord[0].name,360,27,18);ctx.font=`900 ${fs1}px Arial`;wrapText(ctx,ord[0].name,280,565,360,32,2);let fs2=fitText(ctx,ord[1].name,360,27,18);ctx.font=`900 ${fs2}px Arial`;wrapText(ctx,ord[1].name,800,565,360,32,2);
+    ctx.font='700 27px Arial';if(type==='result')ctx.fillText(stad,W/2,665);else{ctx.fillText(`${date}   •   ${tm}`,W/2,650);ctx.font='700 24px Arial';ctx.fillText(`📍 ${stad}`,W/2,690)};
+  }
+  if(document.getElementById('showSponsors').checked){ctx.fillStyle='#fff';ctx.fillRect(35,H-205,1010,165);if(document.getElementById('sponsorMode').value==='sheet'){let sh=await loadImage('sponsorzy/00_arkusz_wszystkich_sponsorow.jpg');let r=Math.min(990/sh.width,145/sh.height),dw=sh.width*r,dh=sh.height*r;ctx.drawImage(sh,(W-dw)/2,H-195+(145-dh)/2,dw,dh)}else{let ids=sponsorSelection.slice(0,8),imgs=[];for(let i of ids)try{imgs.push(await loadImage('sponsorzy/'+sponsors[i][1]))}catch(e){};let n=imgs.length||1,cell=990/n;imgs.forEach((im,j)=>{let aw=Math.min(cell-14,120),ah=120,r=Math.min(aw/im.width,ah/im.height),dw=im.width*r,dh=im.height*r;ctx.drawImage(im,45+j*cell+(cell-dw)/2,H-185+(120-dh)/2,dw,dh)})}}
+  let stamp=(document.getElementById('date').value||'grafika');
+  let filename=`sparta_${type}_${stamp}.png`;
+  const blob=await new Promise((resolve,reject)=>cv.toBlob(b=>b?resolve(b):reject(new Error('Nie udało się utworzyć PNG')),'image/png'));
+  // iOS wymaga, aby navigator.share() był uruchomiony bezpośrednio po dotknięciu przycisku.
+  // Dlatego najpierw przygotowujemy PNG i pokazujemy osobny przycisk „Udostępnij PNG”.
+  preparePNGForIOS(blob,filename,cv);
+ }catch(e){console.error(e);alert('Nie udało się utworzyć PNG. Spróbuj ponownie po ponownym otwarciu aplikacji.')}finally{btn.disabled=false;btn.textContent=old}
+}
+
+
+let preparedPNG=null,preparedPNGUrl=null;
+function preparePNGForIOS(blob,filename,cv){
+  if(preparedPNGUrl)URL.revokeObjectURL(preparedPNGUrl);
+  preparedPNG={blob,filename,file:new File([blob],filename,{type:'image/png'})};
+  preparedPNGUrl=URL.createObjectURL(blob);
+  document.getElementById('iosExportPreview').src=preparedPNGUrl;
+  document.getElementById('iosExportStatus').textContent='Grafika została utworzona poprawnie.';
+  document.getElementById('iosExportSheet').style.display='block';
+  saveGraphicToLibrary(cv,type);
+}
+async function sharePreparedPNG(){
+  if(!preparedPNG)return;
+  const st=document.getElementById('iosExportStatus');
+  try{
+    if(navigator.share && (!navigator.canShare || navigator.canShare({files:[preparedPNG.file]}))){
+      await navigator.share({files:[preparedPNG.file],title:'GKS Sparta Łabunie'});
+      st.textContent='Menu udostępniania zostało otwarte.';
+      return;
+    }
+    st.textContent='Ten tryb iPhone’a nie udostępnia plików bezpośrednio. Naciśnij „Otwórz PNG”, a następnie przytrzymaj obraz i wybierz zapisanie.';
+  }catch(e){
+    if(e && e.name==='AbortError'){st.textContent='Udostępnianie anulowane.';return}
+    console.error(e);
+    st.textContent='Nie udało się otworzyć menu. Użyj „Otwórz PNG”.';
+  }
+}
+function openPreparedPNG(){
+  if(!preparedPNGUrl)return;
+  const w=window.open(preparedPNGUrl,'_blank');
+  if(!w)location.href=preparedPNGUrl;
+}
+function closeExportSheet(){document.getElementById('iosExportSheet').style.display='none'}
+
+// v9: terminarz, centrum meczu, historia, live, MVP, formaty i ustawienia wyglądu
+let matches=JSON.parse(localStorage.getItem('sparta_matches')||'[]');
+let history=JSON.parse(localStorage.getItem('sparta_history')||'[]');
+let liveEvents=[];
+let appSettings=JSON.parse(localStorage.getItem('sparta_settings')||'{}');
+function switchView(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('.nav2 button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));if(id==='schedule')renderSchedule();if(id==='center')renderLiveMatchSelect();if(id==='history')renderHistory();if(id==='season')renderSeason();if(id==='library')renderLibrary();if(id==='admin')loadAdmin()}
+document.querySelectorAll('.nav2 button').forEach(b=>b.onclick=()=>switchView(b.dataset.view));
+function syncClubSelects(){['schedOpp'].forEach(id=>{let e=document.getElementById(id);if(e)e.innerHTML=clubs.map((c,i)=>`<option value='${i}'>${c.name}</option>`).join('')})}
+function addMatch(){let ci=+schedOpp.value,c=clubs[ci];let m={id:Date.now(),oppName:c.name,oppCrest:c.crest,date:schedDate.value,time:schedTime.value,venue:schedVenue.value,stadium:schedStadium.value||'Miejsce do ustalenia',league:schedLeague.value,stage:schedStage.value,status:'planned',squad:{},captain:null,events:[],score:'0:0'};matches.push(m);localStorage.setItem('sparta_matches',JSON.stringify(matches));renderSchedule();renderLiveMatchSelect()}
+function renderSchedule(){syncClubSelects();scheduleList.innerHTML=matches.length?matches.map(m=>`<div class='matchitem'><span class='badge'>${m.league}</span> <b>${m.date||'bez daty'} ${m.time||''}</b><br>${m.venue==='away'?m.oppName+' – GKS Sparta Łabunie':'GKS Sparta Łabunie – '+m.oppName}<br><small>📍 ${m.stadium}${m.stage?' • '+m.stage:''}</small><div style='margin-top:7px'><button class='secondary' onclick='openMatch(${m.id})'>Otwórz mecz</button> <button class='secondary' onclick='useMatchInCreator(${m.id})'>Do kreatora</button> <button class='secondary' onclick='deleteMatch(${m.id})'>Usuń</button></div></div>`).join(''):'<div class="note">Brak zaplanowanych meczów.</div>'}
+function deleteMatch(id){matches=matches.filter(x=>x.id!==id);localStorage.setItem('sparta_matches',JSON.stringify(matches));renderSchedule();renderLiveMatchSelect()}
+function openMatch(id){switchView('center');liveMatch.value=String(id);loadLiveMatch()}
+function useMatchInCreator(id){let m=matches.find(x=>x.id===id);if(!m)return;let i=clubs.findIndex(c=>c.name===m.oppName);if(i>=0)opp.value=i;date.value=m.date;time.value=m.time;matchVenue.value=m.venue;stadium.value=m.stadium;league.value=m.league;stage.value=m.stage||'';switchView('creator');applyVenue();render()}
+function renderLiveMatchSelect(){liveMatch.innerHTML=matches.map(m=>`<option value='${m.id}'>${m.date||''} • ${m.oppName}</option>`).join('');eventPlayer.innerHTML=roster.map((p,i)=>`<option value='${i}'>${p[1]} ${p[0]}</option>`).join('');loadLiveMatch()}
+function loadLiveMatch(){let m=matches.find(x=>String(x.id)===liveMatch.value)||matches[0];if(!m){matchSquad.innerHTML='<div class="note">Najpierw dodaj mecz w Terminarzu.</div>';eventList.innerHTML='';return}liveMatch.value=String(m.id);liveEvents=m.events||[];liveScore.value=m.score||'0:0';matchSquad.innerHTML=roster.map((p,i)=>`<div class='squadrow'><b>${p[1]}</b><span>${p[0]}</span><select data-sq='${i}'><option value='out'>Poza kadrą</option><option value='start' ${(m.squad?.[i]==='start')?'selected':''}>Podstawowy</option><option value='bench' ${(m.squad?.[i]==='bench')?'selected':''}>Rezerwowy</option></select><label title='Kapitan'><input type='radio' name='captain' data-cap='${i}' ${String(m.captain)===String(i)?'checked':''}> C</label></div>`).join('');document.querySelectorAll('[data-sq]').forEach(e=>e.onchange=saveSquad);document.querySelectorAll('[data-cap]').forEach(e=>e.onchange=saveSquad);renderEvents()}
+function currentMatch(){return matches.find(x=>String(x.id)===liveMatch.value)}
+function saveSquad(){let m=currentMatch();if(!m)return;m.squad={};document.querySelectorAll('[data-sq]').forEach(e=>{if(e.value!=='out')m.squad[e.dataset.sq]=e.value});let cap=document.querySelector('[data-cap]:checked');m.captain=cap?+cap.dataset.cap:null;persistMatches()}
+function persistMatches(){localStorage.setItem('sparta_matches',JSON.stringify(matches))}
+function addEvent(kind){let m=currentMatch();if(!m)return alert('Wybierz mecz.');let pi=+eventPlayer.value,pl=roster[pi];let labels={goal:'GOL',yellow:'Żółta kartka',red:'Czerwona kartka',change:'Zmiana'};let ev={id:Date.now(),kind,minute:+eventMinute.value||1,player:pl[0],number:pl[1],label:labels[kind]};liveEvents.push(ev);liveEvents.sort((a,b)=>a.minute-b.minute);m.events=liveEvents;m.score=liveScore.value;persistMatches();renderEvents()}
+function renderEvents(){eventList.innerHTML=liveEvents.length?liveEvents.map(e=>`<div class='eventitem'><b>${e.minute}' ${e.label}</b> — #${e.number} ${e.player}</div>`).join(''):'<div class="note">Brak wydarzeń.</div>'}
+function liveGraphic(kind){let m=currentMatch();if(!m)return alert('Wybierz mecz.');useMatchInCreator(m.id);score.value=liveScore.value;if(kind==='ht'){type='result';document.querySelector('.title')?.remove();}else if(kind==='ft'){type='result'}else if(kind==='goal'){type='result'}else if(kind==='mvp'){let name=prompt('Wpisz zawodnika MVP lub wybierz z kadry:',roster[+eventPlayer.value][0]);if(name){score.value='MVP: '+name;type='result'}}document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('active',b.dataset.type===type));render()}
+function finishMatch(){let m=currentMatch();if(!m)return;m.score=liveScore.value;m.events=liveEvents;m.status='finished';history.unshift(JSON.parse(JSON.stringify(m)));matches=matches.filter(x=>x.id!==m.id);localStorage.setItem('sparta_history',JSON.stringify(history));persistMatches();renderLiveMatchSelect();alert('Mecz zapisany w historii.')}
+function renderHistory(){let goals={};history.forEach(m=>(m.events||[]).filter(e=>e.kind==='goal').forEach(e=>goals[e.player]=(goals[e.player]||0)+1));let top=Object.entries(goals).sort((a,b)=>b[1]-a[1]).slice(0,5);stats.innerHTML=`<div class='grid3'><div class='matchitem'><b>Mecze</b><br><span style='font-size:30px'>${history.length}</span></div><div class='matchitem'><b>Gole zapisane</b><br><span style='font-size:30px'>${Object.values(goals).reduce((a,b)=>a+b,0)}</span></div><div class='matchitem'><b>Najlepsi strzelcy</b><br>${top.map(x=>x[0]+' '+x[1]).join('<br>')||'—'}</div></div>`;historyList.innerHTML=history.map(m=>`<div class='matchitem'><b>${m.date} • ${m.oppName} • ${m.score}</b><br>${m.league}${m.stage?' • '+m.stage:''}<br><small>${(m.events||[]).map(e=>e.minute+"' "+e.label+' '+e.player).join(' • ')||'Brak wydarzeń'}</small></div>`).join('')||'<div class="note">Historia jest pusta.</div>'}
+function saveSettings(){appSettings={format:exportFormat.value,theme:theme.value,crestSize:crestSize.value,showClubName:showClubName.checked,showSocial:showSocial.checked,socialText:socialText.value,backgroundType:backgroundType.value};localStorage.setItem('sparta_settings',JSON.stringify(appSettings));alert('Ustawienia zapisane.')}
+function loadSettings(){exportFormat.value=appSettings.format||'square';theme.value=appSettings.theme||'classic';crestSize.value=appSettings.crestSize||'normal';showClubName.checked=appSettings.showClubName!==false;showSocial.checked=!!appSettings.showSocial;socialText.value=appSettings.socialText||'';backgroundType.value=appSettings.backgroundType||'graphic'}
+
+// v10: sezon, biblioteka, backup, admin, PWA/offline, post meczowy
+let graphicLibrary=JSON.parse(localStorage.getItem('sparta_graphic_library')||'[]');
+let leagueRows=JSON.parse(localStorage.getItem('sparta_league_table')||'[]');
+let clubAdmin=JSON.parse(localStorage.getItem('sparta_admin')||'{}');
+function parseScore(m){let a=String(m.score||'0:0').match(/(\d+)\s*[:\-]\s*(\d+)/);if(!a)return [0,0];let x=+a[1],y=+a[2];return m.venue==='away'?[y,x]:[x,y]}
+function renderSeason(){let leagueHist=history.filter(m=>m.league==='Zamojska Klasa Okręgowa MACRON'),w=0,d=0,l=0,gf=0,ga=0;leagueHist.forEach(m=>{let [a,b]=parseScore(m);gf+=a;ga+=b;if(a>b)w++;else if(a===b)d++;else l++});seasonSummary.innerHTML=`<div class='grid3'><div class='matchitem'><b>MACRON</b><br><span style='font-size:28px'>${leagueHist.length}</span> meczów</div><div class='matchitem'><b>Bilans</b><br><span style='font-size:24px'>${w}-${d}-${l}</span><br>M-Z-P</div><div class='matchitem'><b>Bramki</b><br><span style='font-size:28px'>${gf}:${ga}</span><br>${w*3+d} pkt</div></div>`;let st={};roster.forEach(p=>st[p[0]]={m:0,start:0,bench:0,g:0,y:0,r:0,mvp:0});history.forEach(m=>{Object.entries(m.squad||{}).forEach(([i,v])=>{let n=roster[+i]?.[0];if(n&&st[n]){st[n].m++;st[n][v]++}});(m.events||[]).forEach(e=>{if(!st[e.player])return;if(e.kind==='goal')st[e.player].g++;if(e.kind==='yellow')st[e.player].y++;if(e.kind==='red')st[e.player].r++});if(m.mvp&&st[m.mvp])st[m.mvp].mvp++});playerStats.innerHTML=`<div style='overflow:auto'><table style='width:100%;border-collapse:collapse'><tr><th>Zawodnik</th><th>M</th><th>XI</th><th>Ławka</th><th>G</th><th>ŻK</th><th>CK</th><th>MVP</th></tr>${Object.entries(st).map(([n,x])=>`<tr><td>${n}</td><td>${x.m}</td><td>${x.start}</td><td>${x.bench}</td><td>${x.g}</td><td>${x.y}</td><td>${x.r}</td><td>${x.mvp}</td></tr>`).join('')}</table></div>`;renderLeagueTable()}
+function addTableRow(){let n=tableTeam.value.trim();if(!n)return;let row={name:n,m:+tableM.value||0,pts:+tablePts.value||0,gf:+tableGF.value||0,ga:+tableGA.value||0};let i=leagueRows.findIndex(x=>x.name.toLowerCase()===n.toLowerCase());if(i>=0)leagueRows[i]=row;else leagueRows.push(row);localStorage.setItem('sparta_league_table',JSON.stringify(leagueRows));renderLeagueTable()}
+function renderLeagueTable(){leagueRows.sort((a,b)=>b.pts-a.pts||(b.gf-b.ga)-(a.gf-a.ga)||b.gf-a.gf);leagueTable.innerHTML=leagueRows.length?`<table style='width:100%;margin-top:12px'><tr><th>#</th><th>Drużyna</th><th>M</th><th>BR</th><th>PKT</th></tr>${leagueRows.map((x,i)=>`<tr><td>${i+1}</td><td>${x.name}</td><td>${x.m}</td><td>${x.gf}:${x.ga}</td><td><b>${x.pts}</b></td></tr>`).join('')}</table>`:'<div class="note">Tabela jest pusta — możesz wpisywać ją ręcznie po kolejkach.</div>'}
+function saveGraphicToLibrary(cv,kind){try{let thumb=document.createElement('canvas'),w=260,h=Math.round(260*cv.height/cv.width);thumb.width=w;thumb.height=h;thumb.getContext('2d').drawImage(cv,0,0,w,h);graphicLibrary.unshift({id:Date.now(),kind,date:new Date().toLocaleString('pl-PL'),img:thumb.toDataURL('image/jpeg',.7)});graphicLibrary=graphicLibrary.slice(0,25);localStorage.setItem('sparta_graphic_library',JSON.stringify(graphicLibrary))}catch(e){console.warn(e)}}
+function renderLibrary(){libraryList.innerHTML=graphicLibrary.length?graphicLibrary.map(x=>`<div class='matchitem'><img src='${x.img}' style='width:100%;border-radius:8px'><b>${x.kind}</b><br><small>${x.date}</small></div>`).join(''):'<div class="note">Biblioteka jest pusta. Wyeksportuj pierwszą grafikę PNG.</div>'}
+function clearLibrary(){if(confirm('Wyczyścić bibliotekę grafik?')){graphicLibrary=[];localStorage.removeItem('sparta_graphic_library');renderLibrary()}}
+function generatePost(m){let ev=(m.events||[]).filter(e=>e.kind==='goal').map(e=>`${e.player} ${e.minute}'`).join(', ');return `KONIEC MECZU ⚽\n${m.venue==='away'?m.oppName+' '+m.score+' GKS Sparta Łabunie':'GKS Sparta Łabunie '+m.score+' '+m.oppName}\n${ev?'Bramki dla Sparty: '+ev+'.\n':''}${m.league}${m.stage?' • '+m.stage:''}\nDziękujemy za wsparcie! 🔴⚪🔵`}
+function copyPost(id){let m=history.find(x=>x.id===id);if(!m)return;let t=generatePost(m);navigator.clipboard?.writeText(t).then(()=>alert('Tekst posta skopiowany.')).catch(()=>prompt('Skopiuj tekst:',t))}
+const oldRenderHistory=renderHistory;renderHistory=function(){oldRenderHistory();historyList.innerHTML=history.map(m=>`<div class='matchitem'><b>${m.date} • ${m.oppName} • ${m.score}</b><br>${m.league}${m.stage?' • '+m.stage:''}<br><small>${(m.events||[]).map(e=>e.minute+"' "+e.label+' '+e.player).join(' • ')||'Brak wydarzeń'}</small><div style='margin-top:8px'><button class='secondary' onclick='copyPost(${m.id})'>Kopiuj post po meczu</button></div></div>`).join('')||'<div class="note">Historia jest pusta.</div>'}
+function exportBackup(){let data={version:10,created:new Date().toISOString(),matches,history,clubs,sponsorSelection,appSettings,leagueRows,clubAdmin};let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='sparta_labunie_backup.json';a.click();URL.revokeObjectURL(a.href)}
+function importBackup(){let f=backupFile.files[0];if(!f)return alert('Wybierz plik kopii.');let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(d.matches)matches=d.matches;if(d.history)history=d.history;if(d.clubs){clubs=d.clubs;persistClubs()}if(d.sponsorSelection)sponsorSelection=d.sponsorSelection;if(d.appSettings)appSettings=d.appSettings;if(d.leagueRows)leagueRows=d.leagueRows;if(d.clubAdmin)clubAdmin=d.clubAdmin;localStorage.setItem('sparta_matches',JSON.stringify(matches));localStorage.setItem('sparta_history',JSON.stringify(history));localStorage.setItem('sparta_sponsor_selection',JSON.stringify(sponsorSelection));localStorage.setItem('sparta_settings',JSON.stringify(appSettings));localStorage.setItem('sparta_league_table',JSON.stringify(leagueRows));localStorage.setItem('sparta_admin',JSON.stringify(clubAdmin));alert('Kopia zaimportowana. Odświeżam aplikację.');location.reload()}catch(e){alert('Nieprawidłowy plik kopii.')}};r.readAsText(f)}
+function loadAdmin(){adminCoach.value=clubAdmin.coach||'Tomasz Goździuk';adminStadium.value=clubAdmin.stadium||HOME_STADIUM;adminSocial.value=clubAdmin.social||appSettings.socialText||''}
+function saveAdmin(){clubAdmin={coach:adminCoach.value.trim()||'Tomasz Goździuk',stadium:adminStadium.value.trim()||HOME_STADIUM,social:adminSocial.value.trim(),background:clubAdmin.background||''};localStorage.setItem('sparta_admin',JSON.stringify(clubAdmin));alert('Dane klubu zapisane.')}
+function saveBackground(){let f=bgUpload.files[0];if(!f)return alert('Wybierz zdjęcie.');let r=new FileReader();r.onload=()=>{clubAdmin.background=r.result;localStorage.setItem('sparta_admin',JSON.stringify(clubAdmin));backgroundType.value='custom';alert('Tło zapisane. Wybierz „Własne zdjęcie” w Wyglądzie.')};r.readAsDataURL(f)}
+let deferredInstall=null;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e});async function installApp(){if(deferredInstall){deferredInstall.prompt();await deferredInstall.userChoice;deferredInstall=null}else alert('Instalacja PWA jest dostępna po uruchomieniu aplikacji przez HTTPS. Na iPhone użyj Udostępnij → Dodaj do ekranu początkowego.')}
+
+setTimeout(()=>{syncClubSelects();renderSchedule();renderLiveMatchSelect();renderHistory();loadSettings();schedVenue.onchange=()=>{if(schedVenue.value==='home')schedStadium.value=HOME_STADIUM;else if(schedStadium.value===HOME_STADIUM)schedStadium.value=''};liveMatch.onchange=loadLiveMatch;liveScore.oninput=()=>{let m=currentMatch();if(m){m.score=liveScore.value;persistMatches()}}},0);
+
+renderSponsorGrid();document.getElementById('showSponsors').onchange=render;document.getElementById('sponsorMode').onchange=render;refreshClubs(); let saved=JSON.parse(localStorage.getItem('sparta')||'null');if(saved){['date','time','league','stage','score'].forEach(k=>saved[k]&&document.getElementById(k)&&(document.getElementById(k).value=saved[k]));if(saved.matchVenue)document.getElementById('matchVenue').value=saved.matchVenue;if(saved.stadium)document.getElementById('stadium').value=saved.stadium;if(saved.oppName){let i=clubs.findIndex(c=>c.name===saved.oppName);if(i>=0)document.getElementById('opp').value=i}}document.getElementById('matchVenue').onchange=applyVenue;document.getElementById('stadium').oninput=render;document.getElementById('league').onchange=()=>{const v=league.value;document.getElementById('stageLabel').textContent=v==='Puchar Polski'?'Runda':v==='Sparing'?'Opis / rodzaj sparingu':'Kolejka';render()};document.getElementById('stage').oninput=render;document.getElementById('league').dispatchEvent(new Event('change'));applyVenue();
+if('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('./sw.js').catch(()=>{});</script>
+<div id="iosExportSheet" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:99999;padding:18px;overflow:auto">
+  <div style="max-width:560px;margin:20px auto;background:#0b2748;border:1px solid rgba(255,255,255,.2);border-radius:22px;padding:16px">
+    <h2 style="margin:0 0 10px;color:white">PNG gotowy</h2>
+    <p style="color:#dbe8f7;margin:0 0 12px">Naciśnij „Udostępnij PNG”, a potem wybierz „Zapisz obraz” albo „Zapisz w Plikach”.</p>
+    <img id="iosExportPreview" alt="Podgląd PNG" style="display:block;width:100%;height:auto;border-radius:14px;background:white">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+      <button class="primary" style="flex:1;min-width:180px" onclick="sharePreparedPNG()">Udostępnij PNG</button>
+      <button class="secondary" style="flex:1;min-width:140px" onclick="openPreparedPNG()">Otwórz PNG</button>
+      <button class="secondary" style="width:100%" onclick="closeExportSheet()">Zamknij</button>
+    </div>
+    <div id="iosExportStatus" class="note" style="margin-top:10px"></div>
+  </div>
+</div>
+
+
+<style>
+#xiBuilder{display:none;position:fixed;inset:0;z-index:9000;background:#071b33;overflow:auto;padding:18px}#xiBuilder .xiwrap{max-width:760px;margin:auto}.xibox{background:#102e55;border-radius:20px;padding:16px;margin:12px 0}.xibar{display:flex;justify-content:space-between;align-items:center;gap:10px;position:sticky;top:0;background:#071b33;padding:8px 0;z-index:3}#xiBuilder select{width:100%;padding:12px;border-radius:10px;margin:5px 0 10px}#xiPitch{position:relative;width:100%;aspect-ratio:4/5;background:repeating-linear-gradient(90deg,#176c3a 0 12.5%,#1d7a43 12.5% 25%);border:3px solid #ffffffcc;border-radius:18px;overflow:hidden}#xiPitch:before{content:"";position:absolute;left:0;right:0;top:45%;border-top:2px solid #ffffffaa}#xiPitch:after{content:"";position:absolute;width:25%;aspect-ratio:1;border:2px solid #ffffffaa;border-radius:50%;left:37.5%;top:32.5%}.xiplayer{position:absolute;transform:translate(-50%,-50%);text-align:center;width:19%;color:#fff;font-weight:800;text-shadow:0 2px 4px #000;z-index:1}.xishirt{margin:auto;width:92px;height:85px;background:#fff;color:#071b33;clip-path:polygon(20% 0,36% 8%,64% 8%,80% 0,100% 22%,84% 36%,80% 100%,20% 100%,16% 36%,0 22%);display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:900;text-shadow:none}.xiplayer.gk .xishirt{}.xiname{font-size:17px;margin-top:4px;line-height:1.05;overflow-wrap:anywhere}.xipos{font-size:11px;color:#dbe9f7;margin-top:2px;font-weight:800}.xi-actions{display:flex;gap:10px;flex-wrap:wrap}.xi-actions button{flex:1;min-width:150px}.xicolorbar{display:flex;gap:10px;margin:10px 0 4px}.xicolorbtn{flex:1;padding:12px;border:2px solid transparent;border-radius:12px;color:#fff;font-weight:900}.xicolorbtn.red{background:#e51f2b}.xicolorbtn.navy{background:#071b33;border-color:#31577d}.xicolorbtn.active{outline:3px solid #fff;outline-offset:2px}.xiplayer{cursor:pointer}.xiplayer:active{transform:translate(-50%,-50%) scale(.96)}#xiPlayerModal{display:none;position:fixed;inset:0;z-index:9200;background:#04162cf2;padding:18px;overflow:auto}.ximodalbox{max-width:620px;margin:8vh auto;background:#102e55;border-radius:20px;padding:16px}.ximodalhead{display:flex;justify-content:space-between;align-items:center;gap:10px}.ximodalgrid{display:grid;grid-template-columns:1fr;gap:8px;margin-top:12px}.ximodalplayer{width:100%;text-align:left;padding:13px;border-radius:12px;background:#0a2445;color:#fff;border:1px solid #31577d;font-weight:800}.ximodalplayer:disabled{opacity:.35}.xishirt.red{background:#e51f2b;color:#fff}.xishirt.navy{background:#071b33;color:#fff;border:1px solid #7d9aba}.xiplayer.gk .xishirt{border:0}
+.xibenchgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.xibenchitem{display:flex;align-items:center;gap:8px;background:#071b35;border-radius:10px;padding:9px;color:#fff}
+.xibenchitem input{width:auto}
+.xibenchstrip{position:relative;left:auto;right:auto;bottom:auto;min-height:0;margin:12px 3% 0;background:#31577d;border:2px solid #8fb0cf;border-radius:12px;padding:12px 14px;z-index:2}
+.xibenchstrip b{display:block;margin-bottom:5px}.xibenchnames{display:flex;gap:5px;flex-wrap:wrap;font-size:10px}
+.xibenchnames span{background:#ffffff1a;border-radius:7px;padding:4px 6px}
+@media(max-width:520px){.xibenchgrid{grid-template-columns:1fr}}
+</style>
+<div id="xiBuilder"><div class="xiwrap"><div class="xibar"><h2>Skład wyjściowy</h2><button class="secondary" onclick="closeXI()">Wróć</button></div><div class="xibox"><label>Mecz przeciwko</label>
+<select id="xiOpponent" onchange="renderXI()">
+<option value="">— wybierz rywala —</option>
+<option>Omega Stary Zamość</option><option>Błękitni Obsza</option><option>Olimpiakos Tarnogród</option>
+<option>BKS Bodaczów</option><option>Pogoń 96 Łaszczówka</option><option>KS Sokół Zwierzyniec</option>
+<option>Igros Krasnobród</option><option>MLKS Kryształ Werbkowice</option><option>Andoria Mircze</option>
+<option>Grom Chodywańce</option><option>LZS Tanew Majdan Stary</option><option>Tyszowce</option>
+<option>GKS Huragan Hrubieszów</option><option>GRYF 2011</option><option>Łada 1945 Biłgoraj</option>
+<option>Korona Łaszczów</option>
+</select>
+<div class="note">Rywal pojawi się na grafice PNG z małym herbem, jeśli jego herb jest zapisany w aplikacji.</div>
+<label>Formacja</label><select id="xiFormation" onchange="buildXISelectors();renderXI()"><option>4-4-2</option><option selected>4-3-3</option><option>4-2-3-1</option><option>3-5-2</option><option>3-4-3</option><option>5-3-2</option></select><div class="xicolorbar"><button id="xiRedBtn" type="button" class="xicolorbtn red active" onclick="setXIShirtColor('red')">Czerwone koszulki</button><button id="xiNavyBtn" type="button" class="xicolorbtn navy" onclick="setXIShirtColor('navy')">Granatowe koszulki</button></div><div class="note" style="margin-top:10px"><b>Kolor koszulki bramkarza</b></div><div class="xigkbar"><button id="xiGkYellow" type="button" class="xigkbtn yellow active" onclick="setXIGkColor('yellow')">Żółta</button><button id="xiGkOrange" type="button" class="xigkbtn orange" onclick="setXIGkColor('orange')">Pomarańczowa</button><button id="xiGkBlack" type="button" class="xigkbtn black" onclick="setXIGkColor('black')">Czarna</button></div><div class="note">Dotknij koszulki na boisku, aby wybrać zawodnika na tej pozycji.</div><div id="xiSelectors"></div></div><div class="xibox"><h3>Rezerwowi</h3><div class="note">Zaznacz zawodników, którzy mają pojawić się na grafice jako rezerwowi.</div><label><input id="xiShowBench" type="checkbox" checked style="width:auto" onchange="renderXI()"> Pokaż rezerwowych na grafice</label><div id="xiBenchSelectors" class="xibenchgrid"></div></div><div class="xibox"><div id="xiPitch"></div><div id="xiBenchStrip" class="xibenchstrip"><b>REZERWOWI</b><div id="xiBenchNames" class="xibenchlist"></div></div></div><div class="xibox xi-actions"><button class="primary" onclick="exportXI()">Udostępnij / Zapisz PNG</button><button class="secondary" onclick="closeXI()">Gotowe</button></div></div></div>
+<canvas id="xiCanvas" width="1080" height="1350" style="display:none"></canvas>
+<div id="xiPlayerModal"><div class="ximodalbox"><div class="ximodalhead"><div><h2 id="xiModalTitle" style="margin:0">Wybierz zawodnika</h2><div id="xiModalPos" class="note"></div></div><button class="secondary" type="button" onclick="closeXIPlayerModal()">Zamknij</button></div><div id="xiModalPlayers" class="ximodalgrid"></div></div></div>
+<script>
+// v40: jeszcze większe koszulki podstawowej XI w podglądzie i PNG
+let xiShirtColor="red", xiGkColor="yellow", xiEditingSlot=null; const xiBenchGK=new Set();
+const xiFormations={
+'4-4-2':[[50,84],[12,67],[37,67],[63,67],[88,67],[12,43],[37,43],[63,43],[88,43],[34,16],[66,16]],
+'4-3-3':[[50,84],[12,67],[37,67],[63,67],[88,67],[25,29],[50,46],[75,29],[13,17],[50,12],[87,17]],
+'4-2-3-1':[[50,84],[12,67],[37,67],[63,67],[88,67],[35,37],[65,37],[13,24],[50,24],[87,24],[50,9]],
+'3-5-2':[[50,82],[22,64],[50,66],[78,64],[8,42],[29,42],[50,45],[71,42],[92,42],[34,15],[66,15]],
+'3-4-3':[[50,82],[22,64],[50,66],[78,64],[13,42],[38,44],[62,44],[87,42],[13,15],[50,11],[87,15]],
+'5-3-2':[[50,82],[7,63],[27,64],[50,66],[73,64],[93,63],[25,41],[50,44],[75,41],[34,14],[66,14]]
+};
+const xiPositions={
+'4-4-2':['BR','LO','ŚO','ŚO','PO','LP','ŚP','ŚP','PP','N','N'],
+'4-3-3':['BR','LO','ŚO','ŚO','PO','ŚP','ŚP','ŚP','LS','N','PS'],
+'4-2-3-1':['BR','LO','ŚO','ŚO','PO','DP','DP','LP','ŚPO','PP','N'],
+'3-5-2':['BR','ŚO','ŚO','ŚO','LWB','ŚP','ŚP','ŚP','PWB','N','N'],
+'3-4-3':['BR','ŚO','ŚO','ŚO','LP','ŚP','ŚP','PP','LS','N','PS'],
+'5-3-2':['BR','LO','ŚO','ŚO','ŚO','PO','ŚP','ŚP','ŚP','N','N']
+};
+const xiRoster=(typeof roster!=='undefined'?roster:[]).map((p,i)=>({name:p[0],num:p[1]||'',i}));
+let xiSelection=[],xiBenchSelection=[];
+
+function openXI(){
+  document.getElementById('xiBuilder').style.display='block';
+  if(!xiSelection.length)xiSelection=xiRoster.slice(0,11).map(x=>x.i);
+  buildXISelectors();buildXIBenchSelectors();renderXI();
+}
+function closeXI(){document.getElementById('xiBuilder').style.display='none'}
+
+function buildXISelectors(){
+  const b=document.getElementById('xiSelectors');b.innerHTML='';
+  const form=document.getElementById('xiFormation').value;
+  const pos=xiPositions[form];
+  for(let i=0;i<11;i++){
+    const row=document.createElement('div');
+    row.style.display='grid';row.style.gridTemplateColumns='64px 1fr';row.style.gap='8px';row.style.alignItems='center';
+    const tag=document.createElement('div');
+    tag.textContent=pos[i];tag.style.fontWeight='900';tag.style.textAlign='center';tag.style.background='#174b91';tag.style.padding='12px 4px';tag.style.borderRadius='10px';
+    const s=document.createElement('select');
+    s.dataset.slot=i;
+    s.onchange=()=>{
+      const v=+s.value;
+      const other=xiSelection.findIndex((x,j)=>j!==i&&x===v);
+      if(other>=0){alert('Ten zawodnik jest już w pierwszej 11.');buildXISelectors();return}
+      xiSelection[i]=v;
+      xiBenchSelection=xiBenchSelection.filter(x=>x!==v);
+      buildXIBenchSelectors();renderXI();
+    };
+    xiRoster.forEach(p=>{
+      let o=document.createElement('option');o.value=p.i;o.textContent=(p.num?('#'+p.num+' '):'')+p.name;
+      if(p.i===xiSelection[i])o.selected=true;s.appendChild(o)
+    });
+    row.appendChild(tag);row.appendChild(s);b.appendChild(row)
+  }
+}
+function buildXIBenchSelectors(){
+  const b=document.getElementById('xiBenchSelectors');if(!b)return;
+  b.innerHTML='';
+  xiRoster.forEach(p=>{
+    const inXI=xiSelection.includes(p.i);
+    const lab=document.createElement('label');lab.className='xibenchitem';
+    const cb=document.createElement('input');cb.type='checkbox';cb.value=p.i;cb.checked=xiBenchSelection.includes(p.i);cb.disabled=inXI;
+    cb.onchange=()=>{
+      if(cb.checked){if(!xiBenchSelection.includes(p.i))xiBenchSelection.push(p.i)}
+      else xiBenchSelection=xiBenchSelection.filter(x=>x!==p.i);
+      renderXI()
+    };
+    lab.appendChild(cb);lab.appendChild(document.createTextNode(' '+(p.num?('#'+p.num+' '):'')+p.name+(inXI?' — XI':'')));
+    b.appendChild(lab)
+  })
+}
+function xiBenchPlayers(){return xiBenchSelection.map(i=>xiRoster.find(p=>p.i===i)).filter(Boolean)}
+function setXIShirtColor(color){
+ xiShirtColor=color;
+ document.getElementById('xiRedBtn').classList.toggle('active',color==='red');
+ document.getElementById('xiNavyBtn').classList.toggle('active',color==='navy');
+ renderXI();
+}
+function setXIGkColor(color){
+ xiGkColor=color;
+ ['yellow','orange','black'].forEach(c=>document.getElementById('xiGk'+c[0].toUpperCase()+c.slice(1)).classList.toggle('active',c===color));
+ renderXI();
+}
+function openXIPlayerModal(slot){
+ xiEditingSlot=slot;
+ const form=document.getElementById('xiFormation').value;
+ const current=xiRoster.find(p=>p.i===xiSelection[slot]);
+ document.getElementById('xiModalPos').textContent='Pozycja: '+xiPositions[form][slot];
+ const box=document.getElementById('xiModalPlayers');box.innerHTML='';
+ const cur=document.createElement('div');cur.className='ximodalcurrent';
+ cur.textContent='Aktualnie: '+(current.num?('#'+current.num+' '):'')+current.name;box.appendChild(cur);
+ const lab=document.createElement('div');lab.className='ximodalavail';lab.textContent='DOSTĘPNI ZAWODNICY';box.appendChild(lab);
+ const sorted=[...xiRoster].sort((a,b)=>{
+   const au=xiSelection.some((v,i)=>i!==slot&&v===a.i), bu=xiSelection.some((v,i)=>i!==slot&&v===b.i);
+   return Number(au)-Number(bu);
+ });
+ sorted.forEach(p=>{
+  const used=xiSelection.some((v,i)=>i!==slot&&v===p.i);
+  const b=document.createElement('button');b.type='button';b.className='ximodalplayer';b.disabled=used;
+  b.textContent=(p.num?('#'+p.num+' '):'')+p.name+(used?' • już w składzie':'');
+  b.onclick=()=>selectXIPlayerForSlot(p.i);box.appendChild(b);
+ });
+ document.getElementById('xiPlayerModal').style.display='block';
+}
+function closeXIPlayerModal(){document.getElementById('xiPlayerModal').style.display='none';xiEditingSlot=null}
+function selectXIPlayerForSlot(playerId){
+ if(xiEditingSlot===null)return;
+ xiSelection[xiEditingSlot]=playerId;
+ xiBenchSelection=xiBenchSelection.filter(x=>x!==playerId);
+ closeXIPlayerModal();buildXISelectors();buildXIBenchSelectors();renderXI();
+}
+
+function toggleXIBenchGK(id,checked){
+  if(checked) xiBenchGK.add(id); else xiBenchGK.delete(id);
+  renderXI();
+}
+function xiBenchShirtClass(id){
+  return xiBenchGK.has(id)?('gk-'+xiGkColor):xiShirtColor;
+}
+function renderXI(){
+  const pitch=document.getElementById('xiPitch');pitch.querySelectorAll('.xiplayer').forEach(x=>x.remove());
+  xiFormations[document.getElementById('xiFormation').value].forEach((xy,i)=>{
+    const p=xiRoster.find(x=>x.i===xiSelection[i])||xiRoster[i];if(!p)return;
+    const d=document.createElement('div');d.className='xiplayer'+(i===0?' gk':'');d.style.left=xy[0]+'%';d.style.top=xy[1]+'%';
+    const pos=xiPositions[document.getElementById('xiFormation').value][i];d.onclick=()=>openXIPlayerModal(i);d.setAttribute('role','button');d.innerHTML='<div class="xishirt '+(i===0?('gk-'+xiGkColor):xiShirtColor)+'">'+(p.num||'')+'</div><div class="xiname">'+p.name+'</div><div class="xipos">'+pos+'</div>';pitch.appendChild(d)
+  });
+  const strip=document.getElementById('xiBenchStrip'),names=document.getElementById('xiBenchNames'),show=document.getElementById('xiShowBench').checked,res=xiBenchPlayers();
+  strip.style.display=show?'block':'none';
+  names.innerHTML=res.length?res.map(p=>'<div class="xibenchmini"><div class="xibenchshirt '+xiBenchShirtClass(p.i)+'">'+(p.num||'')+'</div><div class="xibenchname">'+xiSurname(p.name)+'</div><label class="xibenchgkcheck"><input type="checkbox" '+(xiBenchGK.has(p.i)?'checked':'')+' onchange="toggleXIBenchGK('+p.i+',this.checked)"> BR</label></div>').join(''):'<div class="note">Brak wybranych rezerwowych</div>';
+}
+function xiSurname(name){return String(name).split(/\s+/).slice(-1)[0]}
+function roundRectXI(ctx,x,y,w,h,r){
+  r=Math.min(r,w/2,h/2);ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()
+}
+
+function xiFindOpponentCrest(name){
+  if(!name) return '';
+  const aliases={
+    'Grom Chodywańce':'Graf Chodywańce',
+    'Tyszowce':'Huczwa Tyszowce',
+    'GRYF 2011':'Gryf Gmina Zamość'
+  };
+  const wanted=aliases[name]||name;
+  const club=(typeof clubs!=='undefined'?clubs:[]).find(c=>c.name===wanted)
+    || (typeof defaultClubs!=='undefined'?defaultClubs:[]).find(c=>c.name===wanted);
+  return club?.crest||'';
+}
+async function xiLoadImage(src){
+  if(!src) return null;
+  try{return await loadImage(src)}catch(e){console.warn('Nie udało się wczytać obrazu:',src,e);return null}
+}
+async function exportXI(){
+  const c=document.getElementById('xiCanvas'),x=c.getContext('2d');c.width=1080;c.height=1350;x.clearRect(0,0,1080,1350);
+  let g=x.createLinearGradient(0,0,1080,1350);g.addColorStop(0,'#061d3b');g.addColorStop(1,'#123e70');x.fillStyle=g;x.fillRect(0,0,1080,1350);
+  // Nagłówek PNG: oryginalny herb używany przez aplikację + nazwa klubu.
+  const crest=await xiLoadImage('herb.jpg');
+  if(crest){
+    const maxW=105,maxH=105,scale=Math.min(maxW/crest.naturalWidth,maxH/crest.naturalHeight);
+    const cw=crest.naturalWidth*scale,ch=crest.naturalHeight*scale;
+    x.drawImage(crest,42,18,cw,ch);
+  }
+  x.fillStyle='#fff';x.textAlign='center';x.font='900 46px Arial';
+  x.fillText('SKŁAD WYJŚCIOWY',610,62);
+  x.font='900 30px Arial';x.fillText('GKS SPARTA ŁABUNIE',610,104);
+  const opp=document.getElementById('xiOpponent')?.value||'';
+  if(opp){x.font='700 20px Arial';x.fillStyle='#dbe9f7';x.fillText('vs '+opp,610,132);}
+  const px=90,py=165,pw=900,ph=840;
+  if(opp){
+    const oppImg=await xiLoadImage(xiFindOpponentCrest(opp));
+    if(oppImg){
+      const max=88,sc=Math.min(max/oppImg.naturalWidth,max/oppImg.naturalHeight);
+      const ow=oppImg.naturalWidth*sc,oh=oppImg.naturalHeight*sc;
+      x.drawImage(oppImg,990-ow,22,ow,oh);
+    }
+  }
+  x.fillStyle='#176c3a';x.fillRect(px,py,pw,ph);
+  for(let j=0;j<8;j++){x.fillStyle=j%2?'rgba(255,255,255,.025)':'rgba(0,0,0,.035)';x.fillRect(px+j*pw/8,py,pw/8,ph)}
+  x.strokeStyle='#ffffffdd';x.lineWidth=6;x.strokeRect(px+4,py+4,pw-8,ph-8);x.beginPath();x.moveTo(px,py+ph/2);x.lineTo(px+pw,py+ph/2);x.stroke();x.beginPath();x.arc(540,py+ph/2,105,0,Math.PI*2);x.stroke();
+  xiFormations[document.getElementById('xiFormation').value].forEach((xy,i)=>{
+    const p=xiRoster.find(z=>z.i===xiSelection[i])||xiRoster[i];if(!p)return;
+    const cx=px+pw*xy[0]/100;
+    let cy=py+ph*xy[1]/100;
+    x.fillStyle=i===0?(xiGkColor==='yellow'?'#ffd84a':xiGkColor==='orange'?'#f28c18':'#111111'):(xiShirtColor==='red'?'#e51f2b':'#071b33');
+    x.beginPath();x.moveTo(cx-112,cy-86);x.lineTo(cx-68,cy-116);x.lineTo(cx-32,cy-98);x.lineTo(cx+32,cy-98);x.lineTo(cx+68,cy-116);x.lineTo(cx+112,cy-86);x.lineTo(cx+88,cy-42);x.lineTo(cx+80,cy+82);x.lineTo(cx-80,cy+82);x.lineTo(cx-88,cy-42);x.closePath();x.fill();
+    x.fillStyle=i===0?(xiGkColor==='black'?'#fff':'#071b33'):'#fff';x.font='900 72px Arial';x.fillText(p.num||'',cx,cy+18);
+    x.fillStyle='#fff';x.font='900 40px Arial';x.fillText(xiSurname(p.name),cx,cy+142)
+  });
+  const show=document.getElementById('xiShowBench').checked,res=xiBenchPlayers();
+  if(show){
+    x.fillStyle='#fff';x.textAlign='left';x.font='900 27px Arial';x.fillText('REZERWOWI',90,1050);
+    if(res.length){
+      const cols=4, cellW=225, rowH=132;
+      res.forEach((p,k)=>{
+        const col=k%cols,row=Math.floor(k/cols),cx=90+col*cellW+cellW/2,cy=1080+row*rowH;
+        x.fillStyle=xiBenchGK.has(p.i)?(xiGkColor==='yellow'?'#ffd84a':xiGkColor==='orange'?'#f28c18':'#111111'):(xiShirtColor==='red'?'#e51f2b':'#071b33');
+        x.beginPath();x.moveTo(cx-52,cy);x.lineTo(cx-31,cy-20);x.lineTo(cx-14,cy-11);x.lineTo(cx+14,cy-11);x.lineTo(cx+31,cy-20);x.lineTo(cx+52,cy);x.lineTo(cx+41,cy+23);x.lineTo(cx+36,cy+76);x.lineTo(cx-36,cy+76);x.lineTo(cx-41,cy+23);x.closePath();x.fill();
+        x.fillStyle=xiBenchGK.has(p.i)&&xiGkColor!=='black'?'#071b33':'#fff';x.textAlign='center';x.font='900 35px Arial';x.fillText(p.num||'',cx,cy+46);
+        x.fillStyle='#fff';x.font='700 25px Arial';x.fillText(xiSurname(p.name),cx,cy+112);
+      });
+    }else{x.fillStyle='#dbe9f7';x.font='600 20px Arial';x.fillText('Brak wybranych rezerwowych',90,1090)}
+    x.textAlign='center';
+  }
+  
+  c.toBlob(blob=>{
+    if(!blob){alert('Nie udało się utworzyć PNG. Spróbuj ponownie.');return}
+    preparePNGForIOS(blob,'sparta_sklad_'+new Date().toISOString().slice(0,10)+'.png',c)
+  },'image/png')
+}
+</script>
+</body></html>
